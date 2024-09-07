@@ -1,16 +1,19 @@
-function ListItem(props){
-  return(
-    <li>{props.animal}</li>
-  )
-
-}
 
 function List(props){
+
+  if(!props.animals){
+    return <div>Loading...</div>
+  }
+
+  if (props.animals.length === 0){
+    return <div>There are no animals</div>
+  }
+
   return(
     <ul>
-        {props.animals.map((animal) =>{
-          return  animal.startsWith("L") && <ListItem key={animal} animal={animal}/>;
-        })}
+      {props.animals.map((animal) => {
+        return <li>{animal}</li>
+      })}
     </ul>
   )
 }
@@ -18,12 +21,12 @@ function List(props){
 
 function App() {
   
-  const animals = ['Goat', 'Elephant', 'Sheep', 'Guinea pig', 'Lobster', "Lion"];
+  const animals = [];
 
   return (
     <div>
       <h1>Animals:</h1>
-      <List animals={animals}/>
+      <List />
       
     </div>
   )
