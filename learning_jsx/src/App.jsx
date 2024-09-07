@@ -1,20 +1,21 @@
 
 function List(props){
-
-  if(!props.animals){
-    return <div>Loading...</div>
-  }
-
-  if (props.animals.length === 0){
-    return <div>There are no animals</div>
-  }
-
   return(
-    <ul>
-      {props.animals.map((animal) => {
-        return <li>{animal}</li>
-      })}
-    </ul>
+    <>
+      {!props.animals ? (
+        <div>Loading...</div>
+      ) : props.animals.length > 0 ?(
+        <ul>
+          {props.animals.map((animal)=> {
+            return <li key={animal}>{animal}</li>
+          })}
+        </ul>
+      ) : (
+        <div>There are no animals in the list!</div>
+      )
+    }
+    
+    </>
   )
 }
 
@@ -26,7 +27,7 @@ function App() {
   return (
     <div>
       <h1>Animals:</h1>
-      <List />
+      <List animals={animals} />
       
     </div>
   )
