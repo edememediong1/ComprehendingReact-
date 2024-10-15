@@ -5,15 +5,6 @@ import Button from './Button.jsx'
 import Input from './Input.jsx'
 
 
-const Controls = styled.div`
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
-    margin-bottom: 1.5rem;
-`
-
-
-
 
 export default function AuthInputs() {
   const [enteredEmail, setEnteredEmail] = useState('');
@@ -37,7 +28,7 @@ export default function AuthInputs() {
 
   return (
     <div id="auth-inputs">
-      <Controls>
+      <div>
 
           <Input
             label ='Email'
@@ -59,7 +50,7 @@ export default function AuthInputs() {
             }
           />
 
-      </Controls>
+      </div>
       <div className="actions">
         <button type="button" className="text-button">
           Create a new account
@@ -69,3 +60,13 @@ export default function AuthInputs() {
     </div>
   );
 }
+
+
+
+
+// const Controls = styled.div`
+//     display: flex;
+//     flex-direction: column;
+//     gap: 0.5rem;
+//     margin-bottom: 1.5rem;
+// `
